@@ -1,0 +1,24 @@
+{
+    "terminal.integrated.rendererType": "dom",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "highlight-matching-tag.styles": {
+        "opening": {
+            "name": {
+                "underline": "blue"
+            }
+        }
+    },
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggestSelection": "first",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "[typescript]": {
+        "editor.showUnused": true
+    },
+    "[typescriptreact]": {
+        "editor.showUnused": true
+    }
+}

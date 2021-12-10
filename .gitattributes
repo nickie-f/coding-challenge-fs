@@ -1,0 +1,6 @@
+*.pbxproj -text
+
+* text eol=crlf
+
+*.png binary
+*.jpg binary
