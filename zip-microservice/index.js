@@ -21,6 +21,23 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Get a list of all the downloadable files
+app.get ('/', (req, res) => {
+    try {
+        const zipFolder = './zips/';
+        const temp = [];
+        fs.readdir(zipFolder, (err, files) => {
+            files.forEach(file => {
+                temp.push({name: file});
+            })
+            res.send(temp);     
+        });
+    } catch (err) {
+        console.log(err)
+    }
+});
+
+// Main logic
 app.post('/', (req, res) => {
     try {
         const { specialID } = req.body;

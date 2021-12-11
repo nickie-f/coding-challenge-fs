@@ -17,7 +17,6 @@
     "scripts": {
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "start": "nodem index.ts",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "reinstall": "rm -rf node_modules && yarn install"
     },
