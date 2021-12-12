@@ -5,7 +5,7 @@ import SwitchButton from "./shared/SwitchButton";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <AppRoutes />
       <SwitchButton />
     </div>

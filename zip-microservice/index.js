@@ -26,9 +26,17 @@ app.get ('/', (req, res) => {
     try {
         const zipFolder = './zips/';
         const temp = [];
+        const veryComplexBusinessLogic = (fileID) => fileID * 2;
+        const secretIDMapping = {
+          2: "one",
+          4: "22",
+          6: "33threee"
+        }
         fs.readdir(zipFolder, (err, files) => {
             files.forEach(file => {
-                temp.push({name: file});
+                const [fileId] = file.split(".");
+                const doubleId = veryComplexBusinessLogic(fileId);
+                temp.push({name: file, specialId: secretIDMapping[doubleId]});
             })
             res.send(temp);     
         });
@@ -41,9 +49,6 @@ app.get ('/', (req, res) => {
 app.post('/', (req, res) => {
     try {
         const { specialID } = req.body;
-
-        console.log(req.body);
-        console.log(specialID);
 
         if (!specialID) {
             res.writeHead(400, { 'Content-Type': 'text/plain' });

@@ -5,12 +5,15 @@ import { ListGroup } from 'react-bootstrap';
 
 interface IFile {
   name: string;
+  specialId: string;
 }
 
 const HomePage = () => {
+
   const [files, setFiles] = useState<IFile[]>([]);
+
   const listFileName = async () => {
-    const result = await api.get(`/`);
+    const result = await api.get(`/`); // call API with endpoint '/'
     setFiles(result);
   }
 
