@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 import fs from 'fs';
 import bodyParser from 'body-parser';
+import { getSpecialId, veryComplexBusinessLogic } from './services/fileMappingService';
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -21,22 +22,15 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Get a list of all the downloadable files
 app.get('/', (req, res) => {
   try {
     const zipFolder = './zips/';
     const temp = [];
-    const veryComplexBusinessLogic = (fileID) => fileID * 2;
-    const secretIDMapping = {
-      2: 'one',
-      4: '22',
-      6: '33threee',
-    };
     fs.readdir(zipFolder, (err, files) => {
       files.forEach((file) => {
         const [fileId] = file.split('.');
         const doubleId = veryComplexBusinessLogic(fileId);
-        temp.push({ name: file, specialId: secretIDMapping[doubleId] });
+        temp.push({ name: file, specialId: getSpecialId(doubleId) });
       });
       res.send(temp);
     });
