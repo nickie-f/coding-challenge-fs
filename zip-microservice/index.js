@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 import fs from 'fs';
 import bodyParser from 'body-parser';
-import { getSpecialId, veryComplexBusinessLogic } from './services/fileMappingService';
+import { getSpecialId, veryComplexBusinessLogic } from './services/fileMappingService.js';
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
